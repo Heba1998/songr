@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
@@ -8,6 +9,14 @@
 <body>
 <main>
   <h1>Albums</h1>
+    <form action="#" th:action="@{/v2/albums}" th:object="${/v2/albums}" method="post">
+        <p>title: <input type="text" field="*{title}" name="title" /></p>
+        <p>artist: <input type="text" field="*{artist}" name="artist" /></p>
+        <p>songCount: <input type="number" min="1" field="*{songCount}" name="songCount" /></p>
+        <p>length: <input type="number" field="*{length}" name="length" /></p>
+        <p>imageUrl: <input type="text" field="*{imageUrl}" name="imageUrl" /></p>
+        <p>Submit <input type="submit" value="Submit" /></p>
+    </form>
   <div class="Album" th:each="album: ${Albums}">
       <hr><hr>
       <h2 th:text="${album.title}"></h2>

@@ -2,11 +2,12 @@ package com.firstspringproject.songr.controller;
 
 
 import com.firstspringproject.songr.model.Album;
+import com.firstspringproject.songr.repository.AlbumRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
+import org.springframework.web.servlet.view.RedirectView;
 
 
 @Controller
@@ -32,20 +33,24 @@ public class routes {
         return "capitalize.html";
     }
 
+    @Autowired
+    AlbumRepository albumRepository;
 
     @GetMapping("/albums")
-    public String Album(Model model) {
-        Album album1 = new Album("Night Life", "Sara Lovell", 4, 180, "https://redtri.com/wp-content/uploads/2020/05/night-life.jpg?w=605");
-        Album album2 = new Album("Dinosaurs and Metaphors", "Danny Weinkauf", 8, 240, "https://redtri.com/wp-content/uploads/2020/05/dinosaurs-and-metaphors.png?w=605");
-        Album album3 = new Album("Unhurried Journey", "Elena Moon Park", 6, 300, "https://redtri.com/wp-content/uploads/2020/05/unhurried-journey.jpg?w=605");
-        ArrayList<Album> albums = new ArrayList<>();
-        albums.add(album1);
-        albums.add(album2);
-        albums.add(album3);
-
-        model.addAttribute("Albums", albums);
+    public String getalbum(Model model) {
+        model.addAttribute("Album", albumRepository.findAll());
         return "albums.html";
     }
+
+
+
+    @PostMapping("/v2/albums")
+    public RedirectView createNewAlbum(@ModelAttribute Album album , Model model) {
+       model.addAttribute("album" , album);
+        albumRepository.save(album);
+        return new RedirectView("/albums");
+    }
+
 
 
 }

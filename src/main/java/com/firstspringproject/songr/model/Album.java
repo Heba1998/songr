@@ -1,13 +1,23 @@
 package com.firstspringproject.songr.model;
 
+import javax.persistence.*;
+
+@Entity
 public class Album {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private int id;
     private String title;
     private String artist;
     private int songCount;
     private long length;
     private String imageUrl;
 
+    public Album(){
 
+    }
     public Album(String title, String artist, int songCount, int length, String imageUrl) {
         this.title = title;
         this.artist = artist;
@@ -16,6 +26,9 @@ public class Album {
         this.imageUrl = imageUrl;
     }
 
+    public int getId() {
+        return id;
+    }
 
     public String getTitle() {
         return title;
@@ -37,6 +50,9 @@ public class Album {
         return imageUrl;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public void setTitle(String title) {
         this.title = title;

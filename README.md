@@ -16,4 +16,10 @@ An Album has a `title`, an `artist`, a `songCount`, a `length` (in seconds), and
 
 6- Tested the constructor, getters, and setters for the `Album class`.
 
+7- Update your Album model so that it can be saved in a database.
+
+8- A user should be able to see information about all the albums on the site.
+
+9- A user should be able to add albums to the site.
+
 * the app should run the port 8081 and you can see rendered content according to end point.
