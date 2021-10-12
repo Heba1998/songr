@@ -39,16 +39,16 @@ public class routes {
     @GetMapping("/albums")
     public String getalbum(Model model) {
         model.addAttribute("Album", albumRepository.findAll());
-        return "albums.html";
+        return "albums";
     }
 
 
 
-    @PostMapping("/v2/albums")
+    @PostMapping("/albums")
     public RedirectView createNewAlbum(@ModelAttribute Album album , Model model) {
        model.addAttribute("album" , album);
         albumRepository.save(album);
-        return new RedirectView("/albums");
+        return new RedirectView("albums");
     }
 
 

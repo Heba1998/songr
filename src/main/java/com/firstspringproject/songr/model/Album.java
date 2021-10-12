@@ -8,7 +8,7 @@ public class Album {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private int id;
+    private long id;
     private String title;
     private String artist;
     private int songCount;
@@ -26,7 +26,7 @@ public class Album {
         this.imageUrl = imageUrl;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -50,7 +50,7 @@ public class Album {
         return imageUrl;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

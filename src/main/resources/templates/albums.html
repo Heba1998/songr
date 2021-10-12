@@ -9,7 +9,7 @@
 <body>
 <main>
   <h1>Albums</h1>
-    <form action="#" th:action="@{/v2/albums}" th:object="${/v2/albums}" method="post">
+    <form action="#" th:action="@{albums}" th:object="${albums}" method="post">
         <p>title: <input type="text" field="*{title}" name="title" /></p>
         <p>artist: <input type="text" field="*{artist}" name="artist" /></p>
         <p>songCount: <input type="number" min="1" field="*{songCount}" name="songCount" /></p>
