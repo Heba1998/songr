@@ -9,26 +9,29 @@
 <body>
 <main>
   <h1>Albums</h1>
-    <form action="#" th:action="@{albums}" th:object="${albums}" method="post">
-        <p>title: <input type="text" field="*{title}" name="title" /></p>
-        <p>artist: <input type="text" field="*{artist}" name="artist" /></p>
-        <p>songCount: <input type="number" min="1" field="*{songCount}" name="songCount" /></p>
-        <p>length: <input type="number" field="*{length}" name="length" /></p>
-        <p>imageUrl: <input type="text" field="*{imageUrl}" name="imageUrl" /></p>
-        <p>Submit <input type="submit" value="Submit" /></p>
+
+    <form action="/albums" method="post">
+        <p>title: <input type="text" id="title" name="title" /></p>
+        <p>artist: <input type="text" id="artist" name="artist" /></p>
+        <p>songCount: <input type="number" min="1" id="songCount" name="songCount" /></p>
+        <p>length: <input type="number" id="length" name="length" /></p>
+        <p>imageUrl: <input type="text" id="imageUrl" name="imageUrl" /></p>
+        <input type="submit" value="Add new album" />
     </form>
-  <div class="Album" th:each="album: ${Albums}">
-      <hr><hr>
-      <h2 th:text="${album.title}"></h2>
 
-      <p>The album artist : <span th:text="${album.artist}"></span></p>
 
-      <p>The album song count : <span th:text="${album.songCount}"></span></p>
+    <div th:each="album: ${albums}">
+        <hr>
+        <h2 th:text="${album.title}"></h2>
+        <p>The album artist : <span th:text="${album.artist}"></span></p>
 
-      <p>The album length : <span th:text="${album.length}"></span></p>
+        <p>The album song count : <span th:text="${album.songCount}"></span></p>
 
-    <img class="cardImage" th:src="${album.imageUrl}"/>
-  </div>
+        <p>The album length : <span th:text="${album.length}"></span></p>
+
+        <img class="cardImage" th:src="${album.imageUrl}"/>
+    </div>
+
 </main>
 </body>
 </html>

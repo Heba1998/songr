@@ -8,12 +8,12 @@ public class Album {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private long id;
-    private String title;
-    private String artist;
-    private int songCount;
-    private long length;
-    private String imageUrl;
+    long id;
+    String title;
+    String artist;
+    int songCount;
+    int length;
+    String imageUrl;
 
     public Album(){
 

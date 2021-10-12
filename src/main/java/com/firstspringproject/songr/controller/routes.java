@@ -33,24 +33,5 @@ public class routes {
         return "capitalize.html";
     }
 
-    @Autowired
-    AlbumRepository albumRepository;
-
-    @GetMapping("/albums")
-    public String getalbum(Model model) {
-        model.addAttribute("Album", albumRepository.findAll());
-        return "albums";
-    }
-
-
-
-    @PostMapping("/albums")
-    public RedirectView createNewAlbum(@ModelAttribute Album album , Model model) {
-       model.addAttribute("album" , album);
-        albumRepository.save(album);
-        return new RedirectView("albums");
-    }
-
-
 
 }
