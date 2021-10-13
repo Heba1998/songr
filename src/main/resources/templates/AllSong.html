@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>AllSong</title>
+</head>
+<body>
+<h1>All Song</h1>
+<div th:each="song: ${song}">
+    <p th:id="${song.title}" th:text="${song.title}"></p>
+</div>
+</body>
+</html>

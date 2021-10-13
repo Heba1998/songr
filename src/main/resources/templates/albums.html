@@ -25,6 +25,9 @@
         <img th:src="${album.imageUrl}" class="card-img-top" alt="album image"/>
 <div class="card-body">
     <h2 th:text="${album.title}"></h2>
+        <a th:href="'/album/' + ${album.id}">
+            <span>Click here to show songs in this album</span>
+        </a>
     <div  class="card-text" >
         <p>The album artist : <span class="card-title"  th:text="${album.artist}"></span></p>
 

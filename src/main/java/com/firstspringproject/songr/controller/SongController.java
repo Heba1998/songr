@@ -23,10 +23,10 @@ public class SongController {
     @Autowired
     AlbumRepository albumRepository;
 
-    @GetMapping("/song")
+    @GetMapping("/songs")
     public String getsong(Model model){
-        List<Song> song=songRepository.findAll();
-        model.addAttribute("song", song);
+        List<Song> songs=songRepository.findAll();
+        model.addAttribute("songs", songs);
         return "AllSong";
     }
 
@@ -36,7 +36,7 @@ public class SongController {
         Album albums = albumRepository.findById(id).get();
         Song songs = new Song(title, length, trackNumber, albums);
         songRepository.save(songs);
-        return new RedirectView("/album/{id}");
+        return new RedirectView("/album/"+id);
     }
 
 }
