@@ -1,19 +1,24 @@
 package com.firstspringproject.songr.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Album {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+//    @Column(name = "id", nullable = false)
     long id;
     String title;
     String artist;
     int songCount;
     int length;
     String imageUrl;
+
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "album")
+    List<Song> songs;
 
     public Album(){
 
@@ -50,6 +55,10 @@ public class Album {
         return imageUrl;
     }
 
+    public List<Song> getSongs() {
+        return songs;
+    }
+
     public void setId(long id) {
         this.id = id;
     }
@@ -72,6 +81,10 @@ public class Album {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public void setSongs(List<Song> songs) {
+        this.songs = songs;
     }
 
     @Override
