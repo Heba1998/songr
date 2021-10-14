@@ -28,9 +28,13 @@ A Song has a `title`, a `length` (in seconds), a `trackNumber`, and `the album` 
 ```
 
 11- Ensure that the relationship between Albums and Songs is appropriately set up.
+
 12- A user should be able to see information about all the songs on the site.
+
 13- A user should be able to view a page with data about one particular album.
+
 14- A user should be able to add songs to an album.
+
 15- A user should be able to see the songs that belong to an album when looking at that album.
 
 * the app should run the port 8081 and you can see rendered content according to end point.
