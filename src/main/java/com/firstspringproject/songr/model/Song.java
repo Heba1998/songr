@@ -13,7 +13,7 @@ public class Song {
     int trackNumber;
 
     @ManyToOne
-    private Album album;
+    Album album;
 
     public Song(){
 

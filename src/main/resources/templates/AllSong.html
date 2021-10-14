@@ -6,8 +6,10 @@
 </head>
 <body>
 <h1>All Song</h1>
-<div th:each="song: ${song}">
-    <p th:id="${song.title}" th:text="${song.title}"></p>
-</div>
+        <div th:each="song: ${songs}" >
+                <h4> Song title: <span th:text="${song.title}" ></span></h4>
+        </div>
+
+
 </body>
 </html>

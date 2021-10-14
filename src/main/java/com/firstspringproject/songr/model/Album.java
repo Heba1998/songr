@@ -8,7 +8,7 @@ public class Album {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+//    @Column(name = "id", nullable = false)
     long id;
     String title;
     String artist;
@@ -17,8 +17,8 @@ public class Album {
     String imageUrl;
 
 
-    @OneToMany(mappedBy = "album")
-    List<Song> song;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "album")
+    List<Song> songs;
 
     public Album(){
 
@@ -55,8 +55,8 @@ public class Album {
         return imageUrl;
     }
 
-    public List<Song> getSong() {
-        return song;
+    public List<Song> getSongs() {
+        return songs;
     }
 
     public void setId(long id) {
@@ -83,8 +83,8 @@ public class Album {
         this.imageUrl = imageUrl;
     }
 
-    public void setSong(List<Song> song) {
-        this.song = song;
+    public void setSongs(List<Song> songs) {
+        this.songs = songs;
     }
 
     @Override

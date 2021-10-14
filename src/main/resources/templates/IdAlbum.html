@@ -7,17 +7,25 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
-<h1 th:text="${album.title}"></h1>
-<img th:src="${album.imageUrl}">
-
-
-
 <h2>Add songs to this album 🎶</h2>
-<form  th:action="'/album/' + ${album.id} + '/song'">
-    <p>title: <input type="text" id="title" name="title" /></p>
-    <p>length: <input type="number" id="length" name="length" /></p>
-    <p>trackNumber: <input type="number" min="1" id="songCount" name="songCount" /></p>
+<form method="POST" th:action="'/album/' + ${album.id} + '/songs'">
+    <p>title: <input id="title" name="title"></p>
+    <p>length:  <input id="length" name="length"></p>
+    <p>trackNumber: <input id="trackNumber" name="trackNumber"></p>
     <input type="submit" value="Add new song" />
 </form>
+<br>
+<div class="row" >
+    <div th:each="song: ${album.songs}" class="card" style="width: 18rem;">
+        <img th:src="${album.imageUrl}" class="card-img-top" alt="album image"/>
+        <div class="card-body">
+            <h4> Song title: <span th:text="${song.title}" ></span></h4>
+            <div  class="card-text" >
+                <p>The song length:<span class="card-title"  th:text="${song.length}"></span></p>
+                <p>The song trackNumber : <span th:text="${song.trackNumber}"></span></p>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

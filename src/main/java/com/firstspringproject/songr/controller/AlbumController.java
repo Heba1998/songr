@@ -35,17 +35,17 @@ public class AlbumController {
 
     @PostMapping("/albums")
     public RedirectView createNewAlbum(String title, String artist, int songCount, int length, String imageUrl) {
-        Album albums = new Album(title, artist, songCount, length, imageUrl);
-        albumRepository.save(albums);
+        Album album = new Album(title, artist, songCount, length, imageUrl);
+        albumRepository.save(album);
         return new RedirectView("/albums");
     }
 
 
     @GetMapping("/album/{id}")
-    public String AlbumById(@PathVariable long id, Model model){
-        Album albums = albumRepository.findById(id).get();
-        model.addAttribute("album", albums);
-        List<Song> songs= songRepository.findByAlbum(albums);
+    public String getIdAlbum(@PathVariable long id, Model model){
+        Album album = albumRepository.findById(id).get();
+        model.addAttribute("album", album);
+        List<Song> songs= songRepository.findByAlbum(album);
         model.addAttribute("songs", songs);
         return "IdAlbum";
     }

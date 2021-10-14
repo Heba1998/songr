@@ -31,12 +31,12 @@ public class SongController {
     }
 
 
-    @PostMapping("/album/{id}/song")
-    public RedirectView AddSong (String title, int length, int trackNumber, @PathVariable long id){
-        Album albums = albumRepository.findById(id).get();
-        Song songs = new Song(title, length, trackNumber, albums);
-        songRepository.save(songs);
-        return new RedirectView("/album/"+id);
+    @PostMapping("/album/{id}/songs")
+    public RedirectView addSong(String title, int length, int trackNumber, @PathVariable long id) {
+        Album album = albumRepository.findById(id).get();
+        Song song = new Song(title, length, trackNumber, album);
+        songRepository.save(song);
+        return new RedirectView("/album/" + id);
     }
 
 }
